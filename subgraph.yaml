@@ -1,24 +1,25 @@
-specVersion: 0.0.2
-description: Indexing all Ethereum Block data
-repository: https://github.com/blocklytics/ethereum-blocks
+specVersion: 0.0.4
 schema:
   file: ./schema.graphql
 dataSources:
-  - kind: ethereum/contract
-    name: ConverterRegistryContract
-    network: rinkeby
+  - kind: ethereum
+    name: Authorizer
+    network: aurora
     source:
-      address: "0x0ddff327ddf7fe838e3e63d02001ef23ad1ede8e"
-      abi: ConverterRegistryContract
+      address: "0x9F00e5b7a6795e5da0cD1c93bd8479Aa332AE48C"
+      abi: Authorizer
+      startBlock: 71726875
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.3
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
-        - ConverterAddition
+        - RoleAdminChanged
+        - RoleGranted
+        - RoleRevoked
       abis:
-        - name: ConverterRegistryContract
-          file: ./abis/ConverterRegistryContract.json
+        - name: Authorizer
+          file: ./abis/Authorizer.json
       blockHandlers:
         - handler: handleBlock
-      file: ./src/mappings/blocks.ts
+      file: ./src/blocks.ts
