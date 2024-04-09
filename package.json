@@ -5,14 +5,19 @@
     "codegen": "graph codegen",
     "build": "graph build",
     "deploy": "graph deploy --node https://api.thegraph.com/deploy/ polarisfinance/aurora-blocks",
+    "deploy-testnet": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ polarisfinance/auroratestnet-blocks",
     "create-local": "graph create --node http://localhost:8020/ polarisfinance/aurora-blocks",
     "remove-local": "graph remove --node http://localhost:8020/ polarisfinance/aurora-blocks",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 polarisfinance/aurora-blocks",
+    "create-polaris": "graph create --node http://graph.polarisfinance.io:8020/ polarisfinance/auroratestnet-blocks",
+    "deploy-polaris": "graph deploy --node http://graph.polarisfinance.io:8020/ --ipfs http://graph.polarisfinance.io:5001 polarisfinance/auroratestnet-blocks",
     "test": "graph test"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.33.0",
-    "@graphprotocol/graph-ts": "0.27.0"
+    "@graphprotocol/graph-cli": "^0.69.1",
+    "@graphprotocol/graph-ts": "0.34.0"
   },
-  "devDependencies": { "matchstick-as": "0.5.0" }
+  "devDependencies": {
+    "matchstick-as": "0.5.0"
+  }
 }

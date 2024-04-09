@@ -1,17 +1,17 @@
-specVersion: 0.0.4
+specVersion: 1.0.0
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
     name: Authorizer
-    network: aurora
+    network: telos
     source:
-      address: "0x9F00e5b7a6795e5da0cD1c93bd8479Aa332AE48C"
+      address: "0x6060A8adF2016FD70c05099966C71F235e289582"
       abi: Authorizer
-      startBlock: 71726875
+      startBlock: 331355386
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.6
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
         - RoleAdminChanged
@@ -23,3 +23,5 @@ dataSources:
       blockHandlers:
         - handler: handleBlock
       file: ./src/blocks.ts
+indexerHints:
+  prune: 2386800
